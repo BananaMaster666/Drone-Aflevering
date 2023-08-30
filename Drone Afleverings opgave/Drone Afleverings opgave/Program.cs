@@ -13,69 +13,67 @@ namespace DronerOpgave
 
         static void Main(string[] args)
         {
-            File.Delete("doneText.csv");
+            File.Delete("Flyvning2.csv");
             string theText = File.ReadAllText("flyvning1.csv");
 
-            String[] spearator = { ";", "\n" };
+            String[] spearator = { ";", "\n", "\r"};
             Int32 count = int.MaxValue;
 
             // Teksten bliver splittet
             String[] strlist = theText.Split(spearator, count,
                    StringSplitOptions.RemoveEmptyEntries);
 
-        // Teksten bliver læst
-        for (int i = 0; i < strlist.Length; i++)
-        {
-         File.AppendAllText("doneText.csv", strlist[i]+"\n");
-        }
-
         // Longittude data læsning
     List<string> longtitudeData = new List<string>();                 
-            for(int i = 17; i < strlist.Length; i++)
+            for(int i = 16; i < strlist.Length; i++)
             {
-            string brokenLongData = strlist[i];
            // Console.WriteLine("long data " + i + ":" + brokenLongData);
-       longtitudeData.Add(brokenLongData);
+       strlist[i] = strlist[i].Replace(".", "");
+       strlist[i] = strlist[i].Insert(1, ".");
+       longtitudeData.Add(strlist[i]);
+       
             i = (i+12);
             }   
 
-
         // Latitude data læsning 
     List<string> latitudeData = new List<string>();                   
-            for(int i = 18; i < strlist.Length; i++)
+            for(int i = 17; i < strlist.Length; i++)
             {
-            string brokenLatData = strlist[i];
            // Console.WriteLine("lat data " + i + ":" + brokenLatData);
-         latitudeData.Add(brokenLatData);
+
+         strlist[i] = strlist[i].Replace(".", "");
+         strlist[i] = strlist[i].Insert(2, ".");
+         latitudeData.Add(strlist[i]);
             i = (i+12);
             }    
 
-        // Longtitude data Rettelse
-            for(int i = 0; i < longtitudeData.Count; i++)
-            {
-            longtitudeData[i] = longtitudeData[i].Replace(".", "");
-            longtitudeData[i] = longtitudeData[i].Insert(1, ".");
-            //Console.WriteLine("Rettede Long Data #" + i + ": " + longtitudeData[i]);
-            }
-
-         // Latitude data Rettelse
-            for(int i = 0; i < latitudeData.Count; i++)
-            {
-            latitudeData[i] = latitudeData[i].Replace(".", "");
-            latitudeData[i] = latitudeData[i].Insert(2, ".");
-            //Console.WriteLine("Rettede Lat Data #" + i + ": " + latitudeData[i]);
-            }
-
-
-
-        //samle dit data
+        for(int i=0; i<12; i++)
+        {
+            File.AppendAllText("Flyvning2.csv", strlist[i]+";");
+        }
+        File.AppendAllText("Flyvning2.csv", "GPSKoord\n");
 
     List<string> samledeData = new List<string>();
-            for (int i = 0; i < samledeData.Count; i++)
+        for(int i = 0; i < latitudeData.Count; i++)
+        {
+            samledeData.Add("("+longtitudeData[i]+";"+latitudeData[i]+")");
+        }
+
+            int j = 1;
+            int k = 0;
+            for(int i = 14; i<strlist.Length; i++)
             {
-                samledeData.Add("(" + longtitudeData[i] + ";" + latitudeData[i] + ")");
-                Console.WriteLine(samledeData[i]);
-            } 
+            if(j%13==0)
+            {
+            File.AppendAllText("Flyvning2.csv", strlist[i] + ";" + samledeData[k] + "\n");
+            k++;
+            }
+            else
+            {
+            File.AppendAllText("Flyvning2.csv", strlist[i]+";");
+            }
+            j++;
+            }
         }
     }
 }
