@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drone Afleverings opgave", "Drone Afleverings opgave\Drone Afleverings opgave.csproj", "{B868C753-65A5-4DFD-A4C7-840FA4E21AE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recursion", "..\..\Recursion\Recursion\Recursion.csproj", "{CEB72340-837F-4E60-8EBE-245535552B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fuck", "..\..\test\Fuck\Fuck.csproj", "{73DEE3B6-7FB4-4A06-9976-3637B01BCB81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{B868C753-65A5-4DFD-A4C7-840FA4E21AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B868C753-65A5-4DFD-A4C7-840FA4E21AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B868C753-65A5-4DFD-A4C7-840FA4E21AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB72340-837F-4E60-8EBE-245535552B23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB72340-837F-4E60-8EBE-245535552B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB72340-837F-4E60-8EBE-245535552B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB72340-837F-4E60-8EBE-245535552B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73DEE3B6-7FB4-4A06-9976-3637B01BCB81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DEE3B6-7FB4-4A06-9976-3637B01BCB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DEE3B6-7FB4-4A06-9976-3637B01BCB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DEE3B6-7FB4-4A06-9976-3637B01BCB81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
